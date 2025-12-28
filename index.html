@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemogang Group | Construction & Infrastructure</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #563b16;
+            --secondary-color: #f7f38e;
+            --accent-color: #f7f38e;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        header {
+            background-color: #f7f38e; 
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.7rem 0;
+            background-color: #29110c;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        header.scrolled .logo {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin: 0 0.8rem;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 1200px;
+            color: white;
+            text-align: left;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: left;
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .slide-subtitle {
+            font-size: 1.2rem;
+            text-align: left;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(40px);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .slide-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.9rem 30.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(40px);
+            border: 2px solid var(--secondary-color);
+            letter-spacing: 0.5px;
+        }
+
+        .slide-btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        .animate-in {
+            animation: slideUpFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideUpFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: #666;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 98%;
+            margin: 0 auto;
+        }
+
+        .form-control {
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .submit-btn {
+            background-color: var(--secondary-color);
+            color: rgb(0, 0, 0);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            color: white;
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Swiper Controls */
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--secondary-color);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            display: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.2rem;
+        }
+
+        /* Professional Footer */
+        .professional-footer {
+            background-color: #1a1a1a;
+            color: #f8f9fa;
+            padding: 3rem 0 1.5rem;
+            margin-top: 0;
+        }
+
+        .footer-logo {
+            height: auto;
+            width: 100px;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-title {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-contact {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .footer-contact i {
+            color: var(--secondary-color);
+            margin-top: 0.2rem;
+            min-width: 20px;
+        }
+
+        .footer-services-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-services-list li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .footer-services-list li:before {
+            content: "▸";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-values-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-values-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .slide-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            
+            .slide-title {
+                font-size: 2.2rem;
+            }
+            
+            .slide-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .professional-footer {
+                padding: 2.5rem 0 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+    .professional-footer {
+        padding: 2rem 0 1rem;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+            margin-top: 400px;
+        }
+    
+    .footer-logo {
+        height: 45px;
+        margin-bottom: 1.2rem;
+    }
+    
+    .footer-contact p {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .footer-social {
+        justify-content: flex-start;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .footer-bottom .row > div {
+        margin-bottom: 0.5rem;
+    }
+            .slide-title {
+                font-size: 1.8rem;
+            }
+            
+            .slide-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .slide-btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.95rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero {
+                height: 90vh;
+            }
+            
+            .logo {
+                height: 25px;
+            }
+            
+            header.scrolled .logo {
+                height: 35px;
+            }
+            
+            .footer-logo {
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 576px) {
+    .professional-footer {
+        padding: 1.5rem 0 1rem;
+    }
+
+.swiper-button-next, .swiper-button-prev {
+            margin-top: 260px;
+        }
+    
+    
+    .footer-logo {
+        height: 40px;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-description,
+    .footer-col p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .footer-contact p {
+        font-size: 0.85rem;
+        gap: 0.5rem;
+    }
+    
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+    
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .footer-tagline {
+        font-size: 0.8rem;
+    }
+            .slide-title {
+                font-size: 1.6rem;
+            }
+            
+            .slide-content {
+                width: 95%;
+                padding: 1rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-section {
+                padding: 3rem 0;
+            }
+            
+            .logo {
+                height: 30px;
+            }
+            
+            header.scrolled .logo {
+                height: 30px;
+            }
+            
+            .professional-footer {
+                padding: 2rem 0 1rem;
+            }
+            
+            .footer-title {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Enhanced Footer Styles */
+.footer-col {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-description {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    line-height: 1.7;
+}
+
+.footer-contact p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    line-height: 1.5;
+}
+
+.footer-contact p span {
+    flex: 1;
+}
+
+.footer-contact i {
+    color: var(--secondary-color);
+    margin-top: 0.2rem;
+    min-width: 20px;
+    text-align: center;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.footer-social a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+
+/* Form Validation Styles */
+.is-valid {
+    border-color: #198754 !important;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.is-valid:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form field animations */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    transform: translateY(-1px);
+}
+
+/* Required field indicator */
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+}
+
+/* Form hints */
+.form-hint {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Character counter */
+.char-counter {
+    font-size: 0.8rem;
+    text-align: right;
+    margin-top: 0.25rem;
+    color: #6c757d;
+}
+
+.char-counter.warning {
+    color: #ffc107;
+}
+
+.char-counter.danger {
+    color: #dc3545;
+}
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="logo-container" href="#home">
+                    <img src="/assets/Images/logo-03.png" alt="Lemogang Group Logo" class="logo">
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home/Hero Section -->
+    <section id="home" class="hero">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="/assets/Images/02.png" alt="Modern Construction">
+                    <div class="slide-content">
+                        <h1 class="slide-title">Building Excellence Since Inception</h1>
+                        <p class="slide-subtitle">Lemogang Group delivers innovative, reliable, and high-quality construction solutions that enhance infrastructure and uplift communities across South Africa and beyond.</p>
+                        <a href="#contact" class="slide-btn">Start Your Project</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="/assets/Images/01.png" alt="Infrastructure Development">
+                    <div class="slide-content">
+                        <h1 class="slide-title">Infrastructure Solutions</h1>
+                        <p class="slide-subtitle">With a strong focus on durability, safety, and innovation, we provide end-to-end construction services for housing, factories, offices, schools, and major civil engineering projects.</p>
+                        <a href="#contact" class="slide-btn">Get In Touch</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="/assets/Images/03.png" alt="Construction Team">
+                    <div class="slide-content">
+                        <h1 class="slide-title">Quality & Integrity Driven</h1>
+                        <p class="slide-subtitle">Our values-driven approach, transparent pricing, and commitment to building strong relationships make us a dependable partner for any construction or civil engineering project.</p>
+                        <a href="#contact" class="slide-btn">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Customer Form Section -->
+<section id="contact" class="form-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Ready to start your next construction project? Contact us today for a consultation. Our team will respond within 24 hours.</p>
+        
+        <div class="contact-form">
+    <form id="customerForm" onsubmit="return openEmailClient(event)">
+        <div class="form-row">
+            <div class="form-group">
+                <input type="text" id="name" name="name" class="form-control" 
+                       placeholder="Your Full Name *" 
+                       title="Please enter your full name"
+                       minlength="2"
+                       required>
+                <span class="form-hint">Minimum 2 characters</span>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" class="form-control" 
+                       placeholder="Your Email Address *" 
+                       title="Please enter a valid email address"
+                       required>
+                <span class="form-hint">We'll respond to this email</span>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" class="form-control" 
+                       placeholder="Phone Number (Optional)" 
+                       title="Please enter a valid phone number"
+                       pattern="[\+]?[0-9\s\-\(\)]{10,}">
+                <span class="form-hint">Include country code if international</span>
+            </div>
+            <div class="form-group">
+                <select id="service" name="service" class="form-control" required>
+                    <option value="" selected disabled>Select Service Type *</option>
+                    <option value="Building Construction">Building Construction</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Property Maintenance">Property Maintenance</option>
+                    <option value="Engineering Services">Engineering Services</option>
+                    <option value="Other">Other (Specify in message)</option>
+                </select>
+                <span class="form-hint">What type of service do you need?</span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <input type="text" id="project_title" name="project_title" class="form-control" 
+                   placeholder="Project Title (Optional)" 
+                   title="Brief title describing your project">
+            <span class="form-hint">E.g., "Office Building Renovation" or "Residential Development"</span>
+        </div>
+        
+        <div class="form-group">
+            <textarea id="message" name="message" class="form-control" 
+                      rows="5" 
+                      placeholder="Project Details / Message *" 
+                      title="Please describe your project in detail"
+                      minlength="20"
+                      required></textarea>
+            <div class="d-flex justify-content-between">
+                <span class="form-hint">Please provide specific details about your project requirements</span>
+                <span class="char-counter" id="messageCounter">0/1000</span>
+            </div>
+        </div>
+        
+        <div class="alert alert-info mt-3 mb-3" style="font-size: 0.9rem;" hidden>
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Note:</strong> After submitting, your email client will open with all information pre-filled. Just click "Send" to complete your inquiry.
+        </div>
+        
+        <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+        
+        <div id="formMessage" class="mt-3" style="display: none;"></div>
+        
+        <input type="hidden" id="companyEmail" value="info@lemoganggroup.co.za">
+    </form>
+</div>
+    </div>
+</section>
+
+   <!-- Professional Footer -->
+<footer class="professional-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-xl-6 col-lg-6 col-md-12 mb-4">
+                <div class="footer-col">
+                    <img src="/assets/Images/logo.png" alt="Lemogang Group Logo" class="footer-logo">
+                    <p class="footer-description">A forward-thinking construction and infrastructure solutions company based in South Africa, dedicated to delivering high-quality engineering, building, and civil works that meet modern standards of durability, safety, and innovation.</p>
+                    
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> <span><strong>Address:</strong> 123 Main Street, Polokwane, Limpopo, 0700, South Africa</span></p>
+                        <p><i class="fas fa-phone"></i> <span><strong>Phone:</strong> +27 15 123 4567</span></p>
+                        <p><i class="fas fa-mobile-alt"></i> <span><strong>Mobile:</strong> +27 82 123 4567</span></p>
+                        <p><i class="fas fa-envelope"></i> <span><strong>Email:</strong> info@lemoganggroup.co.za</span></p>
+                        <p><i class="fas fa-fax"></i> <span><strong>Fax:</strong> +27 86 123 4567</span></p>
+                    </div>
+                    
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-6 col-lg-6 col-md-12 mb-4">
+                <div class="footer-col">
+                    <h4 class="footer-title">Why Choose Us</h4>
+                    <p>Clients choose Lemogang Pty because we deliver peace of mind. We uphold the highest standards of professionalism, maintain clear communication throughout the project lifecycle, and ensure consistent delivery without compromising safety or quality.</p>
+                    
+                    <p>Our values-driven approach, transparent pricing, and commitment to building strong, long-lasting relationships make us a dependable partner for any construction or civil engineering project.</p>
+                    
+                    <div class="mt-4">
+                        <h5 class="footer-title">Quick Contact</h5>
+                        <p><i class="fas fa-clock"></i> <span><strong>Business Hours:</strong> Mon-Fri: 8:00 AM - 5:00 PM</span></p>
+                        <p><i class="fas fa-headset"></i> <span><strong>Support:</strong> Available during business hours</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12 mb-3 mb-lg-0">
+                    <div class="text-center text-lg-start">
+                        &copy; 2026 Lemogang Group (Pty) Ltd. All rights reserved.
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="text-center text-lg-end footer-tagline">
+                        Building with Purpose | Empowering Growth | Enabling Progress
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.mySwiper', {
+            direction: 'horizontal',
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                init: function() {
+                    animateSlideContent(this.slides[this.activeIndex]);
+                },
+                slideChangeTransitionStart: function() {
+                    animateSlideContent(this.slides[this.activeIndex]);
+                }
+            }
+        });
+
+        // Slide content animation
+        function animateSlideContent(slide) {
+            const title = slide.querySelector('.slide-title');
+            const subtitle = slide.querySelector('.slide-subtitle');
+            const btn = slide.querySelector('.slide-btn');
+            
+            // Reset animations
+            [title, subtitle, btn].forEach(el => {
+                if (el) {
+                    el.classList.remove('animate-in');
+                    void el.offsetWidth; 
+                }
+            });
+            
+            // Animate with delay
+            setTimeout(() => title?.classList.add('animate-in'), 100);
+            setTimeout(() => subtitle?.classList.add('animate-in'), 300);
+            setTimeout(() => btn?.classList.add('animate-in'), 500);
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const logo = document.querySelector('.logo');
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+function openEmailClient(event) {
+    event.preventDefault();
+    
+    const form = document.getElementById('customerForm');
+    const submitBtn = form.querySelector('.submit-btn');
+    const formMessage = document.getElementById('formMessage');
+    const originalHTML = submitBtn.innerHTML;
+    
+    // Show loading state
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing Email...';
+    submitBtn.disabled = true;
+    
+    // Collect form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value || 'Not provided';
+    const service = document.getElementById('service').value;
+    const projectTitle = document.getElementById('project_title').value || 'Not specified';
+    const message = document.getElementById('message').value;
+    const companyEmail = document.getElementById('companyEmail').value;
+    
+    // Format the email body
+    const subject = `New Contact Form: ${projectTitle === 'Not specified' ? 'Inquiry' : projectTitle}`;
+    const emailBody = `
+        New Contact Form Submission - Lemogang Group Website
+
+        From: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Service Type: ${service}
+        Project Title: ${projectTitle}
+
+        Message:
+        ${message}
+
+        Submitted on: ${new Date().toLocaleString()}
+            `.trim();
+    
+    // Create mailto link
+    const mailtoLink = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}&cc=${encodeURIComponent(email)}`;
+    
+    // Try to open email client
+    setTimeout(() => {
+        try {
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            formMessage.innerHTML = `
+                <div class="alert alert-info p-3">
+                    <i class="fas fa-envelope me-2"></i>
+                    <strong>Email client opened!</strong><br>
+                    <small>If your email client didn't open automatically:</small>
+                    <ol class="mt-2 mb-0 ps-3" style="text-align: left; font-size: 0.9rem;">
+                        <li>Copy the information below</li>
+                        <li>Open your email manually</li>
+                        <li>Send to: ${companyEmail}</li>
+                        <li>Subject: ${subject}</li>
+                    </ol>
+                    <div class="mt-2 p-2 bg-light rounded text-start" style="font-size: 0.85rem;">
+                        <strong>Message to copy:</strong><br>
+                        ${emailBody}
+                    </div>
+                </div>
+            `;
+            formMessage.style.display = 'block';
+            
+            // Reset button
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+            
+            // Clear form after successful submission
+            setTimeout(() => {
+                form.reset();
+                formMessage.style.display = 'none';
+            }, 8000);
+            
+        } catch (error) {
+            // Fallback if mailto doesn't work
+            console.error('Error opening email client:', error);
+            
+            // Show manual copy option
+            formMessage.innerHTML = `
+                <div class="alert alert-warning p-3">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Could not open email client automatically</strong><br>
+                    <small>Please copy the information below and send it manually to ${companyEmail}</small>
+                    <div class="mt-2 p-2 bg-light rounded text-start" style="font-size: 0.85rem;">
+                        <strong>To:</strong> ${companyEmail}<br>
+                        <strong>Subject:</strong> ${subject}<br><br>
+                        <strong>Body:</strong><br>
+                        ${emailBody}
+                    </div>
+                    <button onclick="copyToClipboard()" class="btn btn-sm btn-secondary mt-2">
+                        <i class="fas fa-copy me-1"></i> Copy to Clipboard
+                    </button>
+                </div>
+            `;
+            formMessage.style.display = 'block';
+            
+            // Reset button
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+        }
+    }, 1000);
+    
+    return false;
+}
+
+// Function to copy form data to clipboard
+function copyToClipboard() {
+    const companyEmail = document.getElementById('companyEmail').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value || 'Not provided';
+    const service = document.getElementById('service').value;
+    const projectTitle = document.getElementById('project_title').value || 'Not specified';
+    const message = document.getElementById('message').value;
+    
+    const emailText = `To: ${companyEmail}
+Subject: New Contact Form: ${projectTitle === 'Not specified' ? 'Inquiry' : projectTitle}
+
+New Contact Form Submission - Lemogang Group Website
+
+From: ${name}
+Email: ${email}
+Phone: ${phone}
+Service Type: ${service}
+Project Title: ${projectTitle}
+
+Message:
+${message}
+
+Submitted on: ${new Date().toLocaleString()}`;
+    
+    navigator.clipboard.writeText(emailText).then(() => {
+        const copyBtn = document.querySelector('button[onclick="copyToClipboard()"]');
+        copyBtn.innerHTML = '<i class="fas fa-check me-1"></i> Copied!';
+        copyBtn.classList.remove('btn-secondary');
+        copyBtn.classList.add('btn-success');
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = '<i class="fas fa-copy me-1"></i> Copy to Clipboard';
+            copyBtn.classList.remove('btn-success');
+            copyBtn.classList.add('btn-secondary');
+        }, 2000);
+    });
+}
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                }
+            });
+        });
+
+        // Form Validation System
+(function() {
+    // Real-time validation
+    const form = document.getElementById('customerForm');
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    // Validation patterns
+    const patterns = {
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        phone: /^[\+]?[0-9\s\-\(\)]{10,}$/,
+        name: /^[a-zA-Z\s]{2,}$/
+    };
+    
+    // Error messages
+    const errorMessages = {
+        name: {
+            required: 'Please enter your full name',
+            pattern: 'Name should be at least 2 characters and contain only letters'
+        },
+        email: {
+            required: 'Please enter your email address',
+            pattern: 'Please enter a valid email address (e.g., name@example.com)'
+        },
+        phone: {
+            pattern: 'Please enter a valid phone number'
+        },
+        service: {
+            required: 'Please select a service type'
+        },
+        message: {
+            required: 'Please enter your message',
+            minlength: 'Message should be at least 20 characters'
+        }
+    };
+    
+    // Validation classes to form controls
+    inputs.forEach(input => {
+        // Add validation styling
+        input.classList.add('form-control');
+        
+        // Error message container
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'invalid-feedback';
+        errorDiv.style.display = 'none';
+        input.parentNode.appendChild(errorDiv);
+        
+        // Real-time validation on input
+        input.addEventListener('blur', function() {
+            validateField(this);
+        });
+        
+        // Clear error on input
+        input.addEventListener('input', function() {
+            clearError(this);
+        });
+    });
+    
+    // Field validation function
+    function validateField(field) {
+        const value = field.value.trim();
+        const fieldName = field.name || field.id;
+        const errorDiv = field.parentNode.querySelector('.invalid-feedback');
+        
+        // Clear previous error
+        clearError(field);
+        
+        // Required validation
+        if (field.hasAttribute('required') && !value) {
+            showError(field, errorMessages[fieldName]?.required || 'This field is required');
+            return false;
+        }
+        
+        // Pattern validation
+        if (value && patterns[fieldName]) {
+            if (!patterns[fieldName].test(value)) {
+                showError(field, errorMessages[fieldName]?.pattern || 'Invalid format');
+                return false;
+            }
+        }
+        
+        // Custom validations
+        switch(fieldName) {
+            case 'name':
+                if (value.length < 2) {
+                    showError(field, errorMessages.name.pattern);
+                    return false;
+                }
+                break;
+                
+            case 'message':
+                if (value.length < 20) {
+                    showError(field, errorMessages.message.minlength);
+                    return false;
+                }
+                break;
+                
+            case 'phone':
+                if (value && value.length < 10) {
+                    showError(field, 'Phone number should be at least 10 digits');
+                    return false;
+                }
+                break;
+        }
+        
+        // Valid
+        showSuccess(field);
+        return true;
+    }
+    
+    // Show error
+    function showError(field, message) {
+        field.classList.remove('is-valid');
+        field.classList.add('is-invalid');
+        
+        const errorDiv = field.parentNode.querySelector('.invalid-feedback');
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    }
+    
+    // Show success
+    function showSuccess(field) {
+        field.classList.remove('is-invalid');
+        field.classList.add('is-valid');
+        
+        const errorDiv = field.parentNode.querySelector('.invalid-feedback');
+        if (errorDiv) {
+            errorDiv.style.display = 'none';
+        }
+    }
+    
+    // Clear error
+    function clearError(field) {
+        field.classList.remove('is-invalid');
+        const errorDiv = field.parentNode.querySelector('.invalid-feedback');
+        if (errorDiv) {
+            errorDiv.style.display = 'none';
+        }
+    }
+    
+    // Form submission validation
+    form.addEventListener('submit', function(e) {
+        let isValid = true;
+        const firstInvalid = [];
+        
+        // Validate all required fields
+        inputs.forEach(input => {
+            if (input.hasAttribute('required')) {
+                if (!validateField(input)) {
+                    isValid = false;
+                    if (firstInvalid.length === 0) {
+                        firstInvalid.push(input);
+                    }
+                }
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            
+            // Scroll to first invalid field
+            if (firstInvalid.length > 0) {
+                firstInvalid[0].scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Show form error message
+                showFormError('Please complete all required fields correctly.');
+            }
+            return false;
+        }
+        
+        // All valid - show loading state
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalHTML = submitBtn.innerHTML;
+        
+        // Show loading for 2 seconds before opening email client
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Validating...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> All Good! Opening Email...';
+            submitBtn.style.backgroundColor = '#28a745';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+                submitBtn.style.backgroundColor = '';
+            }, 1500);
+        }, 1000);
+    });
+    
+    // Show form-level error
+    function showFormError(message) {
+        let formError = document.getElementById('formError');
+        
+        if (!formError) {
+            formError = document.createElement('div');
+            formError.id = 'formError';
+            formError.className = 'alert alert-danger';
+            formError.style.marginTop = '1rem';
+            form.insertBefore(formError, form.querySelector('#formMessage'));
+        }
+        
+        formError.innerHTML = `
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            ${message}
+            <button type="button" class="btn-close float-end" onclick="this.parentElement.style.display='none'"></button>
+        `;
+        formError.style.display = 'block';
+
+        setTimeout(() => {
+            formError.style.display = 'none';
+        }, 5000);
+    }
+})();
+
+// Character counter for message field
+const messageField = document.getElementById('message');
+const counter = document.getElementById('messageCounter');
+
+if (messageField && counter) {
+    messageField.addEventListener('input', function() {
+        const length = this.value.length;
+        counter.textContent = `${length}/1000`;
+        
+        if (length < 20) {
+            counter.className = 'char-counter danger';
+        } else if (length < 50) {
+            counter.className = 'char-counter warning';
+        } else {
+            counter.className = 'char-counter';
+        }
+    });
+}
+    </script>
+</body>
+</html>
